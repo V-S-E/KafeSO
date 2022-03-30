@@ -1,0 +1,92 @@
+﻿<Window x:Class="Kafe.Redakt"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kafe"
+        mc:Ignorable="d"
+        Title="Редактирование заказа" Height="450" Width="800" WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Res/Back_zakaz.jpg" Stretch="UniformToFill"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#26000000" Offset="1"/>
+                <GradientStop/>
+            </RadialGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="29*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Border Background="Black" Opacity="0.5" CornerRadius="0,0,0,10"></Border>
+            <Label Content="01.01.2001 00:00:00" Name="DataTime" HorizontalAlignment="Left" Foreground="White"></Label>
+            <Button Click="Click_Back" Content="Назад" Width="100" HorizontalAlignment="Right" Style="{StaticResource Round_btn_white}" FontSize="15"></Button> 
+        </Grid>
+        
+        <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+            <!--Поиск по коду заказа, поиск по блюду-->
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Name="grid">
+                <ScrollViewer>
+                    <WrapPanel Name="Wrap1">
+                    </WrapPanel>
+            </ScrollViewer>
+        </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <DataGrid Name="List_sostav" IsReadOnly="True" CanUserResizeColumns="False" CanUserResizeRows="False" Background="White" BorderThickness="0"></DataGrid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Border Background="White" Opacity="0.7"></Border>
+                    <StackPanel VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Итог: "></Label>
+                            <Label Name="Itog"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Сотрудник: "></Label>
+                            <Label Name="Sotr"></Label>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Дата: "></Label>
+                            <Label Name="Date1"></Label>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!--Сделать печать чека-->
+                    <Border Grid.ColumnSpan="2"  Background="White" Opacity="0.7"></Border>
+                    <Button Content="Копировать" Grid.Column="0" Style="{StaticResource Round_btn_black}"></Button>
+                    
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+
+                        <Button Content="Отмена со списанием" Grid.Row="0" Name="Otmena1" Click="Click_Otm1" Style="{StaticResource Round_btn_black}" FontSize="13"></Button>
+                        <Button Content="Отмена без списания" Grid.Row="1" Name="Otmena2" Click="Click_Otm2" Style="{StaticResource Round_btn_black}" FontSize="13"></Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+      </Grid>
+</Window>

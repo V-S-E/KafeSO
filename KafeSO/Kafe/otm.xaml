@@ -1,0 +1,18 @@
+﻿<Window x:Class="Kafe.otm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kafe"
+        mc:Ignorable="d"
+        Title="Отмена" Height="96" Width="300" Background="Azure" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="Azure">
+            <StackPanel>
+                <Label Content="Вид отмены" HorizontalAlignment="Center"></Label>
+                <DockPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Button Width="100" Height="50" Margin="0,0,20,0"  DockPanel.Dock="Left" Content="Со списанием"></Button>
+                    <Button Width="100" Height="50" DockPanel.Dock="Right" Content="Без списания"/>
+                </DockPanel>
+            </StackPanel>
+        </Grid>
+</Window>

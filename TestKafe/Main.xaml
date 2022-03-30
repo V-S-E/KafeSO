@@ -1,0 +1,109 @@
+﻿<Window x:Class="TestKafe.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe"
+        mc:Ignorable="d"
+        Title="Main" Height="450" Width="800" Loaded="Load">
+    <Grid>
+        <Grid Margin="50,0,0,0">
+            <Frame x:Name="Frame" NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
+        <Grid Grid.Column="0" Width="50" HorizontalAlignment="Left" Name="Menu_g">
+            <StackPanel Background="{DynamicResource SCB_green_board}">
+                <Button Click="Click_menu" Style="{DynamicResource Ico_button}" Content="{DynamicResource Menu_app}"></Button>
+                <RadioButton x:Name="MainFrame" Tag="2" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord"  Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource Home}" Margin="5"></Label>
+                                <TextBlock Text="Главная" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton Content="Ингредиенты" Name="Ingredient" Tag="1" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord" Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource Ingredient}" Margin="5" Width="40"></Label>
+                                <TextBlock Text="Ингредиенты" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton Name="Bluda" Tag="5" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord" Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource MenuKafe}" Margin="5,5,5,0" Width="45"></Label>
+                                <TextBlock Text="Блюда" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton Name="Postav" Tag="3" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord" Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource Gruzovik}" Margin="0,10,5,0" Width="50"></Label>
+                                <TextBlock Text="Поставки" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton Name="Sklad" Tag="4" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord" Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource Sklad}" Margin="0,0,5,0" Width="49"></Label>
+                                <TextBlock Text="Склад" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+                <RadioButton Name="Setting" Tag="6" Click="Click_RBTN">
+                    <RadioButton.Template>
+                        <ControlTemplate>
+                            <StackPanel Name="Bord" Height="50" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                                <Label Content="{DynamicResource Settings}" Margin="5,5,5,5" Width="45"></Label>
+                                <TextBlock Text="Настройки" FontSize="30" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="RadioButton.IsChecked" Value="true">
+                                    <Setter TargetName="Bord" Property="Background" Value="White"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </RadioButton.Template>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

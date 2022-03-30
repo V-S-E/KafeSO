@@ -1,0 +1,66 @@
+﻿<Window x:Class="TestKafe.Settings.Sett"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe.Settings"
+        mc:Ignorable="d"
+        Title="Sett" Height="450" Width="800" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Style="{StaticResource BordHead}" Background="AliceBlue"></Border>
+            <Border Grid.Row="1" Style="{StaticResource BordBottom}" Background="White"></Border>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="Строка подключения" Style="{StaticResource Zagolovok}"></TextBlock>
+                    <TextBox Margin="30" Name="BD"></TextBox>
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Логин" Style="{StaticResource Zagolovok}" FontSize="20"></TextBlock>
+                        <TextBox x:Name="Log" Margin="15,5,15,5"></TextBox>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Center" Grid.Row="1">
+                        <TextBlock Text="Пароль" Style="{StaticResource Zagolovok}" FontSize="20"></TextBlock>
+                        <PasswordBox x:Name="Pass" Margin="15,15,5,5"></PasswordBox>
+                    </StackPanel>
+                    <Button Click="Button_Click_1" Grid.Row="2" Margin="30,15,30,15" Content="Connect to SQL"></Button>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Style="{StaticResource BordHead}" Background="{StaticResource SCB_button}"></Border>
+            <Border Grid.Row="1" Style="{StaticResource BordBottom}" Background="White"></Border>
+            <Grid Grid.Row="1">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Margin="20" Text="Путь к папке отчётов" Style="{StaticResource Zagolovok}"></TextBlock>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBox IsReadOnly="True" Width="300" Name="PathOtch"></TextBox>
+                        <Button Content="Выбрать путь" Click="Button_Click"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,73 @@
+﻿<Window x:Class="TestKafe.Postavka.Add_post"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe.Postavka"
+        xmlns:loc="clr-namespace:TestKafe"
+        mc:Ignorable="d"
+        Title="Новая поставка" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing" Background="{DynamicResource Fon}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock Text="Дата:" Width="120" VerticalAlignment="Center"></TextBlock>
+                <DatePicker Width="150" Height="25" Name="Data_p"></DatePicker>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBlock Text="Поставщик:" VerticalAlignment="Center" Width="120"></TextBlock>
+                <TextBox IsReadOnly="True" Name="Postavsh" Width="150" VerticalAlignment="Center" Text="{Binding Path=(loc:Util.Naim_set_p)}"></TextBox>
+                <Button Width="25" Height="25" Content="+" Name="plus_p" Click="plus_p_Click"></Button>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <TextBlock Text="Принял сотрудник:" VerticalAlignment="Center" Width="120"></TextBlock>
+                <TextBox IsReadOnly="True" Name="Sotr" Width="150" VerticalAlignment="Center" Text="{Binding Path=(loc:Util.Naim_set_s)}"></TextBox>
+                <Button Width="25" Height="25" Content="+" Name="plus_s" Click="plus_s_Click"></Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock Text="Итого:" VerticalAlignment="Center"></TextBlock>
+                <TextBox IsReadOnly="True" VerticalAlignment="Center" Width="161" Text="{Binding Path=(loc:Util.Sum_ps), Mode=OneWay}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Name="Add_del" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button Content="Добавить товар" Width="100" Click="Button_Click"></Button>
+                <Button Content="Удалить товар" Width="100" Click="Button_Click_1"></Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Height="30" Name="save_otm" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button Content="Сохранить" Width="100" Click="Button_Click_2"></Button>
+                <Button Content="Отмена" Width="100" Click="Button_Click_3"></Button>
+            </StackPanel>
+
+        </Grid>
+
+        <DataGrid Name="Grid" Grid.Row="1" ItemsSource="{Binding Mode=OneWay}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№"></DataGridTextColumn>
+                <DataGridTextColumn Header="Товар" Width="*" IsReadOnly="True" Binding="{Binding Path=Nazv_t}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Разновидность" Width="*" IsReadOnly="True" Binding="{Binding Path=Nazv_r}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Единица измерения" Width="*" IsReadOnly="True" Binding="{Binding Path=Nazv_ed}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество" Width="*" Binding="{Binding Path=Kol}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Цена за ед" Width="*" Binding="{Binding Path=Cena_ed}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Общая сумма" Width="*" Binding="{Binding Path=Obsh}" IsReadOnly="True"></DataGridTextColumn>
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        
+    </Grid>
+</Window>

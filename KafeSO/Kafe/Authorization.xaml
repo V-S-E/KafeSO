@@ -1,0 +1,76 @@
+﻿<Window x:Class="Kafe.Authorization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kafe"
+        mc:Ignorable="d"
+        Title="Authorization" Height="600" Width="800" WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize" Loaded="Load">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Res/background.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid Width="500" Height="500" >
+            <Border Background="Black" CornerRadius="20" Opacity="0.3"></Border>
+
+            <StackPanel>
+                <Grid Width="100" VerticalAlignment="Top">
+                    <Border CornerRadius="0,0,10,10" Background="Black" Opacity="0.7"></Border>
+                    <StackPanel>
+                        <Label Name="DateNow" HorizontalAlignment="Center" Content="00:00" Foreground="White"></Label>
+                        <Label Name="TimeNow" HorizontalAlignment="Center" Content="01.01.2001" Foreground="White"></Label>
+                    </StackPanel>
+                </Grid>
+                <Label Content="Авторизация пользователя" HorizontalAlignment="Center" FontSize="20" Foreground="White"></Label>
+                <Grid MinWidth="200" MaxWidth="200">
+                    <StackPanel>
+                        <DockPanel>
+                            <Label Content="Логин" VerticalAlignment="Center" Foreground="White"></Label>
+                            <TextBox Margin="0,30,0,30" Name="Log" GotFocus="Focus_Log" IsReadOnly="True"></TextBox>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Пароль" VerticalAlignment="Center" Foreground="White"></Label>
+                            <PasswordBox PasswordChar="*" Margin="0,30,0,30" Name="Pas" GotFocus="Focus_Log"></PasswordBox>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Width="400" Height="250">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Content="1" Grid.Column="0" Grid.Row="0" Click="Cl_tl" Style="{StaticResource Round_btn_white}">
+                        </Button>
+                        <Button Content="2" Grid.Column="1" Grid.Row="0" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="3" Grid.Column="2" Grid.Row="0" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="4" Grid.Column="0" Grid.Row="1" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="5" Grid.Column="1" Grid.Row="1" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="6" Grid.Column="2" Grid.Row="1" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="7" Grid.Column="0" Grid.Row="2" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="8" Grid.Column="1" Grid.Row="2" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="9" Grid.Column="2" Grid.Row="2" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                        <Button Content="Del" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Margin="15,0,0,7.5" Click="Del_Cl" Background="#FFE2CACA" BorderThickness="0,0,1,1" Style="{StaticResource Del}"/>
+                        <Button Content="Вход" Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Margin="15,7.5,0,0" Click="Click_Access" Background="#FFBFDCC3" Padding="0,0,1,1" BorderThickness="0,0,1,1" Style="{StaticResource In}"/>
+                        <Button Content="0" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" Click="Cl_tl" Style="{StaticResource Round_btn_white}"/>
+                    </Grid>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+        <Button Name="Setting" Width="70" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Click_Setting" Style="{StaticResource set_btn}">
+        </Button>
+        <Button Click="Down_system" Name="Down" Width="70" MaxWidth="70" Height="70" MaxHeight="70" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{StaticResource off_btn}"></Button>
+    </Grid>
+</Window>
+

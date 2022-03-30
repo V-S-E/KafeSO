@@ -1,0 +1,64 @@
+﻿<Page x:Class="TestKafe.Ingredient.List_ingr"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestKafe.Ingredient"
+      xmlns:loc="clr_namespace:TestKafe"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="List_ingr">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <!--фильтрация по: товарам, ингредиентам, разновидностям-->
+            <!--Поиск по: товарам, ингредиентам, разновидностям-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{DynamicResource Zagolovok}" Text="Ингредиенты" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Center"></TextBlock>
+
+            <Grid Grid.Row="1" Grid.Column="2" Height="20" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Name="TextP"></TextBox>
+                <Button Content="{DynamicResource Search}" Grid.Column="1" Click="Button_Click_1"></Button>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Добавить" Grid.Column="0" Grid.Row="1" Click="Button_Click"></Button>
+                <Button Content="Удалить" Grid.Column="1" Grid.Row="1"></Button>
+            </Grid>
+
+        </Grid>
+
+        <ListView x:Name="LI" Grid.Row="1" ItemsSource="{Binding  Mode=OneWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Name="Label" Foreground="Blue" Content="{Binding Path=nazv_i}" Tag="{Binding Path=kod_i}" MouseDoubleClick="Label_click"></Label>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

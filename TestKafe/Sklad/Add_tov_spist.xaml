@@ -1,0 +1,92 @@
+﻿<Window x:Class="TestKafe.Sklad.Add_tov_spis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe.Sklad"
+        xmlns:loc="clr-namespace:TestKafe"
+        mc:Ignorable="d"
+        Title="Добавление товара" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing" Background="{DynamicResource Fon}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="2" Height="25">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Name="TextP"></TextBox>
+                    <Button Click="Button_Click" Grid.Column="1" Content="{DynamicResource Search}"></Button>
+                </Grid>
+                <TextBlock Text="Товары" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            <ListView Name="LI" Grid.Row="1" ItemsSource="{Binding Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Path=Nazv_t}" Tag="{Binding Path=kod_t}" MouseDoubleClick="Label_MouseDoubleClick"></Label>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Border Style="{DynamicResource BordFull}" Background="White" Grid.RowSpan="3"></Border>
+            <TextBlock Text="Выбор товара" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="Calibri light"></TextBlock>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Товар: "></TextBlock>
+                    <TextBlock Width="150" Name="Tov_n"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Разновидность: "></TextBlock>
+                    <ComboBox Name="CB" Width="100" ItemsSource="{Binding Mode=OneWay}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=nazv}"></TextBlock>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Click="Button_Click_1" Grid.Row="1" Grid.Column="0" Content="Выбрать"></Button>
+                <Button Click="Button_Click_2" Grid.Row="1" Grid.Column="1" Content="Отмена"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

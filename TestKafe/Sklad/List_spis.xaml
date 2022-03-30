@@ -1,0 +1,61 @@
+﻿<Window x:Class="TestKafe.Sklad.List_spis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe.Sklad"
+        mc:Ignorable="d"
+        Title="Список списаний" Height="450" Width="800" Loaded="Window_Loaded" Closing="Window_Closing" Background="{DynamicResource Fon}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <!--фильтрация по: товарам, ингредиентам, разновидностям-->
+            <!--Поиск по: товарам, ингредиентам, разновидностям-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.RowSpan="3" Style="{DynamicResource Zagolovok}" Text="Список списаний" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"></TextBlock>
+
+            <Grid Grid.RowSpan="2" Grid.Row="0" Grid.Column="2" Height="25" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBox FontSize="15" Grid.Column="0" Name="TextP" Width="200">Поиск по товару</TextBox>
+                <Button Style="{DynamicResource Ico_round}" Content="{DynamicResource Search}" Grid.Column="1" Click="Button_Click_1"></Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Добавить списание" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Click="Button_Click"></Button>
+            </Grid>
+
+        </Grid>
+
+        <ListView x:Name="LI" Grid.Row="1" ItemsSource="{Binding  Mode=OneWay}" MouseDoubleClick="LI_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Data}">Дата</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Pz.Nazv_t}">Товар</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Pz.Nazv_r}">Разновидность</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Kol}">Количество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Pz.Nazv_ed}">Единица</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Sotr.fio}">Сотрудник</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

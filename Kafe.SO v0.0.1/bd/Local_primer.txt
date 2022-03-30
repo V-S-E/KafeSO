@@ -1,0 +1,2 @@
+﻿Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\4_Курс\Курсовая\Kafe\Worker.mdf;Integrated Security=True;Connect Timeout=30
+Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\4_Курс\Курсовая\Kafe\bin\Debug\Kafe.mdf;Integrated Security=True;Connect Timeout=30

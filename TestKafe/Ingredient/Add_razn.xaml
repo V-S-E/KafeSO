@@ -1,0 +1,22 @@
+﻿<Window x:Class="TestKafe.Ingredient.Add_razn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestKafe.Ingredient"
+        mc:Ignorable="d"
+        Title="Add_razn" Height="92.471" Width="350" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Background="{DynamicResource Fon}">
+        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Label Content="Добавление разновидности для ингредиента" HorizontalAlignment="Center" ></Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Название разновидности:"></Label>
+                <TextBox Width="150" Name="Nazv"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="30" VerticalAlignment="Bottom">
+            <Button Content="Добавить" Width="100" Click="Click_add" ></Button>
+            <Button Content="Отмена" Width="100" Click="Click_otm"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
